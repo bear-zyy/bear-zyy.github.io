@@ -64,6 +64,14 @@
 	<div class="article__infos">
 		<span class="article__date">2017-05-15</span><br />
 		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/ios/">ios</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			</span>
 		
 	</div>
 
@@ -77,6 +85,61 @@
 <h3 id="麦克风权限检测"><a href="#麦克风权限检测" class="headerlink" title="麦克风权限检测"></a>麦克风权限检测</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">AVAuthorizationStatus AVatatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];//麦克风</div><div class="line">if (AVatatus == AVAuthorizationStatusDenied || AVatatus == AVAuthorizationStatusRestricted) &#123;</div><div class="line"></div><div class="line">UIAlertController *alert =[UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@&quot;请在手机的”设置-隐私-麦克风“中允许访问您的麦克风。&quot;] message:@&quot;&quot; preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">[alert addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) &#123;</div><div class="line"></div><div class="line">&#125;]];</div><div class="line">[self presentViewController:alert animated:NO completion:nil];</div><div class="line">return NO;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="通知权限检测"><a href="#通知权限检测" class="headerlink" title="通知权限检测"></a>通知权限检测</h3><p>注本文只提供ios8以后</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">UIUserNotificationSettings * setting = [[UIApplication sharedApplication] currentUserNotificationSettings];</div><div class="line">if (setting.types == UIUserNotificationTypeNone) &#123;//这个是关闭了推送</div><div class="line">UIAlertController *alert =[UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@&quot;您关闭了推送通知&quot;] message:@&quot;&quot; preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">[alert addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) &#123;</div><div class="line">&#125;]];</div><div class="line">[self presentViewController:alert animated:NO completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+	
+
+	
+
+</article>
+
+
+
+
+	<article>
+	
+		<h1><a href="/2017/02/23/oc和swift语言混合使用/">oc和swift语言混合使用</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-02-23</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="在oc代码和swift代码混合使用"><a href="#在oc代码和swift代码混合使用" class="headerlink" title="在oc代码和swift代码混合使用"></a>在oc代码和swift代码混合使用</h1><h3 id="在oc项目中使用swift文件"><a href="#在oc项目中使用swift文件" class="headerlink" title="在oc项目中使用swift文件"></a>在oc项目中使用swift文件</h3><p>1 、创建swift文件</p>
+<p>======</p>
+<p>创建swift文件</p>
+<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift1.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p>这个时候会自动弹出时候创建bridgehead.h文件，点击Create就行</p>
+<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift2.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p>（注：bridgehead.h也可以自己创建，自己创建后，需要在Bulid Settings -&gt; swift Compiler 中可以设置）</p>
+<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift3.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<hr>
+<p>2 、 使用swift文件</p>
+<p>======</p>
+<p>用swift怎么写代码就不讲了。。。。 这里默认你swift代码写好了</p>
+<p>创建swift文件时，xcode会产生一个可以叫做中间文件的家伙 “项目名+Swift.h”</p>
+<p>在你需要使用swift代码的类导入”项目名+Swift.h”，就可以使用了</p>
+<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift4.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p>总结：</p>
+<p>1、 创建了swift文件后，确保有Birdging header文件。</p>
+<p>注：birdging文件可以在 build setting   中 swift compiler 中，可以替换成自己的</p>
+<p>2、确保Build Settings中 packaging中 product module name 是项目名     $(TARGET_NAME) 通配符</p>
+<p>3、这些配置好了后，就可以在项目中使用了。 所有的swift文件都会被编译成 以“项目名-Swift.h”为头文件的文件，在使用的类中，导入就行了</p>
+<h3 id="在swift项目中使用oc文件"><a href="#在swift项目中使用oc文件" class="headerlink" title="在swift项目中使用oc文件"></a>在swift项目中使用oc文件</h3><p>1、创建oc文件</p>
+<p>===</p>
+<p>如果是第一次在swift项目中创建oc文件，也会创建一个bridging header文件</p>
+<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift2.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p>同上，也可以don’t create，自己去创建briding head文件，不细说了。。</p>
+<p>2、使用oc代码</p>
+<p>===</p>
+<p>把需要使用的oc类的头文件导入到briding head 文件中，这个时候就可以使用oc类了。</p>
 
 	
 
