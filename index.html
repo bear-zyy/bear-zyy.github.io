@@ -35,30 +35,6 @@
 
 	<article>
 	
-		<h1><a href="/2017/05/22/hello-world/">Hello World</a></h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-05-22</span><br />
-		
-		
-	</div>
-
-	
-
-	
-		<h2 id="Fisrt-Blog"><a href="#Fisrt-Blog" class="headerlink" title="Fisrt Blog"></a>Fisrt Blog</h2><h3 id="Create-a-new-blog"><a href="#Create-a-new-blog" class="headerlink" title="Create a new blog"></a>Create a new blog</h3><p>More info: <a href="https://www.baidu.com" target="_blank" rel="external">百度</a></p>
-
-	
-
-	
-
-</article>
-
-
-
-
-	<article>
-	
 		<h1><a href="/2017/05/15/权限检测/">权限检测</a></h1>
 	
 	<div class="article__infos">
@@ -140,6 +116,49 @@
 <p>2、使用oc代码</p>
 <p>===</p>
 <p>把需要使用的oc类的头文件导入到briding head 文件中，这个时候就可以使用oc类了。</p>
+
+	
+
+	
+
+</article>
+
+
+
+
+	<article>
+	
+		<h1><a href="/2016/11/02/ios开发之音频、视频、拍照、视频录制/">ios开发之音频、视频、拍照、视频录制</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2016-11-02</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h3 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h3><p>首先了解一下音频播放的实现级别：<br>离线播放：这里并不是指应用不联网，而是指播放本地音频文件，包括先下完完成音频文件再进行播放的情况，这种使用AVFoundation里的AVAudioPlayer可以满足<br>在线播放：使用AVFoundation的AVPlayer可以满足<br>在线播放同时存储文件：使用AudioFileStreamer ＋ AudioQueue 可以满足<br>在线播放且带有音效处理：使用<br>这里主要是讲1和2，有兴趣的可以自行去研究3跟4</p>
+<hr>
+<p>1、离线播放<br>播放音频通常会选择使用AVFoundation.framework中的AVAudioPlayer。</p>
+<p>AVAudioPlayer可以看成一个播放器，它支持多种音频格式，而且能够进行进度、音量、播放速度等控制。</p>
+<p>下面是音频播放代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let urlString = Bundle.main.path(forResource: &quot;videoRing2&quot;, ofType: &quot;mp3&quot;)//都是播放本地音频文件</div><div class="line">let url = NSURL.fileURL(withPath: urlString!)</div><div class="line">do&#123;</div><div class="line">player = try AVAudioPlayer.init(contentsOf: url)</div><div class="line">guard player != nil else &#123; return &#125;</div><div class="line">player?.prepareToPlay();</div><div class="line">player?.play()</div><div class="line">&#125; catch let error&#123;</div><div class="line">print(error.localizedDescription)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有很多的属性可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public init(contentsOf url: URL) throws//初始化本地URL文件</div><div class="line">public init(data: Data) throws //初始化data数据</div><div class="line">open func prepareToPlay() -&gt; Bool //准备播放，在播放之前必须调用</div><div class="line">open func play() -&gt; Bool //播放</div><div class="line">open func play(atTime time: TimeInterval) -&gt; Bool //从哪个时间点开始播放，用来快进和倒退</div><div class="line">open func pause() //暂停</div><div class="line">open func stop() //停止</div><div class="line"></div><div class="line">open var duration: TimeInterval &#123; get &#125;//获取音频文件播放时长</div></pre></td></tr></table></figure>
+<p>2、在线播放<br>使用AVPlayer要用到AVPlayer、AVPlayerItem这两个类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let onlineUrl = NSURL.init(string:&quot;http://xxxxxxxxxxx.mp3&quot;)    </div><div class="line">item = AVPlayerItem.init(url: onlineUrl! as URL)</div><div class="line">onLinePlayer = AVPlayer.init(playerItem: item)</div><div class="line">//初始化后，就可以播放了。</div><div class="line">onLinePlayer?.play()//播放</div><div class="line">onLinePlayer?.pause()//暂停</div></pre></td></tr></table></figure></p>
+<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><p>可以播放本地视频文件也可以播放在线视频文件</p>
+<hr>
+<p>MPMoviePlayerController 这个类在iOS 9之后已经过去了，这里就不在提及了。</p>
+<p>现在一般使用AVPlayerViewController和AVPlayer搭配使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var playerView : AVPlayerViewController?</div><div class="line">var player : AVPlayer?</div><div class="line">var item : AVPlayerItem?    </div><div class="line">override func viewDidLoad() &#123;</div><div class="line">super.viewDidLoad()</div><div class="line">self.view.backgroundColor = UIColor.white</div><div class="line">let string = &quot;http:xxxxxxxxxxxxxxx.mp4&quot;</div><div class="line">playerView = AVPlayerViewController.init()</div><div class="line">item = AVPlayerItem.init(url: NSURL.init(string: string)! as URL)</div><div class="line">player = AVPlayer.init(playerItem: item)</div><div class="line">let layer = AVPlayerLayer.init(player: player)</div><div class="line">self.view.layer .addSublayer(layer)</div><div class="line">self.playerView?.player = player</div><div class="line"></div><div class="line">let onLinePause = UIButton.init(type: .custom)</div><div class="line">onLinePause.setTitle(&quot;播放视频&quot;, for: .normal)</div><div class="line">onLinePause.setTitleColor(UIColor.red, for: .normal)</div><div class="line">onLinePause.frame = CGRect.init(x: 200, y: 500, width: 150, height: 40)</div><div class="line">onLinePause.addTarget(self, action: #selector(movieClick), for: .touchUpInside)</div><div class="line">self.view.addSubview(onLinePause)</div><div class="line"></div><div class="line">// Do any additional setup after loading the view.</div><div class="line">&#125;</div><div class="line"></div><div class="line">func movieClick() &#123;</div><div class="line">self.show(self.playerView!, sender: nil)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="拍照"><a href="#拍照" class="headerlink" title="拍照"></a>拍照</h3><p>等待中。。。。</p>
+<h3 id="视频录制"><a href="#视频录制" class="headerlink" title="视频录制"></a>视频录制</h3><p>等待中。。。。</p>
 
 	
 
