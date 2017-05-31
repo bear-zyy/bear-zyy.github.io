@@ -35,14 +35,48 @@
 
 	<article>
 	
+		<h1><a href="/2017/05/31/自定义左滑cell删除样式/">自定义左滑cell删除样式</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-05-31</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/iOS/">iOS</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="自定义左滑cell删除样式"><a href="#自定义左滑cell删除样式" class="headerlink" title="自定义左滑cell删除样式"></a>自定义左滑cell删除样式</h1><h3 id="1、首先实现左滑删除功能"><a href="#1、首先实现左滑删除功能" class="headerlink" title="1、首先实现左滑删除功能"></a>1、首先实现左滑删除功能</h3><p>实现tableview的代理事件，不然什么都是免谈</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(UITableViewCellEditingStyle )tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">return UITableViewCellEditingStyleDelete;//这个是删除</div><div class="line">&#125;</div><div class="line">-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">return YES;</div><div class="line">&#125;</div><div class="line">-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">//在这个方法里面实现删除操作</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2、改变左滑cell删除按钮"><a href="#2、改变左滑cell删除按钮" class="headerlink" title="2、改变左滑cell删除按钮"></a>2、改变左滑cell删除按钮</h3><p>这里就要用到一点黑科技了</p>
+<p>首先来看看左滑后，UI图层</p>
+<p><figure class="figure"><img src="/2017/05/31/自定义左滑cell删除样式/CellDelete.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p>看到这个图层后，就可以操作了</p>
+<p>UITableViewCellDeleteConfirmationView这个view在代码中是关联不出来的，不像contentview，但是我们可以获取到它。并且改变它。</p>
+<p>在cell中的代码如下，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)layoutSubviews&#123;</div><div class="line">[super layoutSubviews];</div><div class="line">for (UIView * view in self.subviews) &#123;</div><div class="line">if ([view isKindOfClass:NSClassFromString(@&quot;UITableViewCellDeleteConfirmationView&quot;)]) &#123;</div><div class="line">CGRect cRect = view.frame;</div><div class="line">cRect.size.height = self.contentView.frame.size.height - 20;</div><div class="line">cRect.origin.y = self.contentView.frame.origin.y + 10;</div><div class="line">view.frame = cRect;</div><div class="line">UIView * confirmView = (UIView *)[view.subviews firstObject];</div><div class="line">confirmView.backgroundColor = [UIColor redColor];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、实现微信那样左滑出现两个按钮"><a href="#3、实现微信那样左滑出现两个按钮" class="headerlink" title="3、实现微信那样左滑出现两个按钮"></a>3、实现微信那样左滑出现两个按钮</h3><p>在控制器中实现这个代理事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(NSArray&lt;UITableViewRowAction *&gt;*)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line"></div><div class="line">UITableViewRowAction *rowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@&quot;删除&quot; handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) &#123;</div><div class="line">//实现点击删除按钮的操作</div><div class="line">&#125;];</div><div class="line">rowAction.backgroundColor = [UIColor redColor];</div><div class="line"></div><div class="line">UITableViewRowAction *rowaction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@&quot;置顶&quot; handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) &#123;</div><div class="line">//实现点击置顶按钮的操作</div><div class="line">&#125;];</div><div class="line">rowaction.backgroundColor = [UIColor grayColor];</div><div class="line">return @[rowAction , rowaction];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+	
+
+	
+
+</article>
+
+
+
+
+	<article>
+	
 		<h1><a href="/2017/05/15/权限检测/">权限检测</a></h1>
 	
 	<div class="article__infos">
 		<span class="article__date">2017-05-15</span><br />
-		
-			<span class="article__category">
-				<a class="article-category-link" href="/categories/ios/">ios</a>
-			</span><br />
 		
 		
 			<span class="article__tags">
