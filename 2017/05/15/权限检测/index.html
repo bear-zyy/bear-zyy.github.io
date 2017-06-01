@@ -1,52 +1,92 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="theme-color" content="#33474d">
-	<title>权限检测 | 张源远的blog</title>
-	<link rel="stylesheet" href="/css/style.css" />
-	
-      <link rel="alternate" href="/atom.xml" title="张源远的blog" type="application/atom+xml">
-    
+  <meta charset="utf-8">
+  
+  <title>权限检测 | 张源远的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ios开发中检测相机、麦克风、通知权限这个是获取到权限后的枚举： 1234AVAuthorizationStatusNotDetermined = 0,//未询问过用户是否授权AVAuthorizationStatusRestricted, //未授权，例如家长控制AVAuthorizationStatusDenied, //未授权，用户曾选择过拒绝授权AVAuthorizationStatusA">
+<meta name="keywords" content="ios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="权限检测">
+<meta property="og:url" content="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/index.html">
+<meta property="og:site_name" content="张源远的blog">
+<meta property="og:description" content="ios开发中检测相机、麦克风、通知权限这个是获取到权限后的枚举： 1234AVAuthorizationStatusNotDetermined = 0,//未询问过用户是否授权AVAuthorizationStatusRestricted, //未授权，例如家长控制AVAuthorizationStatusDenied, //未授权，用户曾选择过拒绝授权AVAuthorizationStatusA">
+<meta property="og:updated_time" content="2017-05-31T02:05:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="权限检测">
+<meta name="twitter:description" content="ios开发中检测相机、麦克风、通知权限这个是获取到权限后的枚举： 1234AVAuthorizationStatusNotDetermined = 0,//未询问过用户是否授权AVAuthorizationStatusRestricted, //未授权，例如家长控制AVAuthorizationStatusDenied, //未授权，用户曾选择过拒绝授权AVAuthorizationStatusA">
+  
+    <link rel="alternate" href="/atom.xml" title="张源远的blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/bear-zyy/bear-zyy.github.io/tree/master/css/style.css">
+  
+
 </head>
 
 <body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/bear-zyy/bear-zyy.github.io/tree/master/" id="logo">张源远的blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/bear-zyy/bear-zyy.github.io/tree/master/">Home</a>
+        
+          <a class="main-nav-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://github.com/bear-zyy/bear-zyy.github.io/tree/master"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-权限检测" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/" class="article-date">
+  <time datetime="2017-05-15T03:00:02.000Z" itemprop="datePublished">2017-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      权限检测
+    </h1>
+  
 
-	<header class="header">
-		<nav class="header__nav">
-			
-				<a href="/archives" class="header__link">Archive</a>
-			
-				<a href="/tags" class="header__link">Tags</a>
-			
-				<a href="/atom.xml" class="header__link">RSS</a>
-			
-		</nav>
-		<h1 class="header__title"><a href="/bear-zyy/bear-zyy.github.io/tree/master/">张源远的blog</a></h1>
-		<h2 class="header__subtitle"></h2>
-	</header>
-
-	<main>
-		<article>
-	
-		<h1>权限检测</h1>
-	
-	<div class="article__infos">
-		<span class="article__date">2017-05-15</span><br />
-		
-		
-			<span class="article__tags">
-			  	<a class="article__tag-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a>
-			</span>
-		
-	</div>
-
-	
-
-	
-		<h1 id="ios开发中检测相机、麦克风、通知权限"><a href="#ios开发中检测相机、麦克风、通知权限" class="headerlink" title="ios开发中检测相机、麦克风、通知权限"></a>ios开发中检测相机、麦克风、通知权限</h1><p>这个是获取到权限后的枚举：</p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ios开发中检测相机、麦克风、通知权限"><a href="#ios开发中检测相机、麦克风、通知权限" class="headerlink" title="ios开发中检测相机、麦克风、通知权限"></a>ios开发中检测相机、麦克风、通知权限</h1><p>这个是获取到权限后的枚举：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">AVAuthorizationStatusNotDetermined = 0,//未询问过用户是否授权</div><div class="line">AVAuthorizationStatusRestricted, //未授权，例如家长控制</div><div class="line">AVAuthorizationStatusDenied, //未授权，用户曾选择过拒绝授权</div><div class="line">AVAuthorizationStatusAuthorized //已经授权</div></pre></td></tr></table></figure>
 <hr>
 <h4 id="相机权限检测"><a href="#相机权限检测" class="headerlink" title="相机权限检测"></a>相机权限检测</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">AVAuthorizationStatus atatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];</div><div class="line">if (atatus == AVAuthorizationStatusDenied || atatus == AVAuthorizationStatusRestricted) &#123;</div><div class="line"></div><div class="line">UIAlertController *alert =[UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@&quot;请在手机的”设置-隐私-相机“中允许访问您的相机。&quot;] message:@&quot;&quot; preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">[alert addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) &#123;</div><div class="line"></div><div class="line">&#125;]];</div><div class="line">[self presentViewController:alert animated:NO completion:nil];</div><div class="line">return NO;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -54,51 +94,138 @@
 <h3 id="通知权限检测"><a href="#通知权限检测" class="headerlink" title="通知权限检测"></a>通知权限检测</h3><p>注本文只提供ios8以后</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">UIUserNotificationSettings * setting = [[UIApplication sharedApplication] currentUserNotificationSettings];</div><div class="line">if (setting.types == UIUserNotificationTypeNone) &#123;//这个是关闭了推送</div><div class="line">UIAlertController *alert =[UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@&quot;您关闭了推送通知&quot;] message:@&quot;&quot; preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">[alert addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) &#123;</div><div class="line">&#125;]];</div><div class="line">[self presentViewController:alert animated:NO completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-	
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/" data-id="cj3e6xt1p000425zwrkssgt32" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a></li></ul>
 
-	
-		<span class="different-posts"><a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自定义左滑cell删除样式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/03/06/状态栏状态改变/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">状态栏状态改变</div>
+    </a>
+  
+</nav>
 
-	
-
+  
 </article>
 
-	</main>
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-	<footer class="footer">
-	<div class="footer-content">
-		
-	      <div class="footer__element">
-	<p>Hi there, <br />welcome to my Blog glad you found it. Have a look around, will you?</p>
-</div>
-
-	    
-	      <div class="footer__element">
-	<h5>Check out</h5>
-	<ul class="footer-links">
-		<li class="footer-links__link"><a href="/archives">Archive</a></li>
-		
-		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
-	    
-		<li class="footer-links__link"><a href="/about">about page</a></li>
-		<li class="footer-links__link"><a href="/tags">Tags</a></li>
-		<li class="footer-links__link"><a href="/categories">Categories</a></li>
-	</ul>
-</div>
-
-	    
-
-		<div class="footer-credit">
-			<span>© 2017 zyy | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
-		</div>
-
-	</div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a></li></ul>
+    </div>
+  </div>
 
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/" style="font-size: 10px;">ios</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/">自定义左滑cell删除样式</a>
+          </li>
+        
+          <li>
+            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/">权限检测</a>
+          </li>
+        
+          <li>
+            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/03/06/状态栏状态改变/">状态栏状态改变</a>
+          </li>
+        
+          <li>
+            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/">oc和swift语言混合使用</a>
+          </li>
+        
+          <li>
+            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/">iOS开发黑科技之runtime</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 zyy<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/bear-zyy/bear-zyy.github.io/tree/master/" class="mobile-nav-link">Home</a>
+  
+    <a href="/bear-zyy/bear-zyy.github.io/tree/master/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/bear-zyy/bear-zyy.github.io/tree/master/fancybox/jquery.fancybox.css">
+  <script src="/bear-zyy/bear-zyy.github.io/tree/master/fancybox/jquery.fancybox.pack.js"></script>
 
+
+<script src="/bear-zyy/bear-zyy.github.io/tree/master/js/script.js"></script>
+
+  </div>
 </body>
-
 </html>
