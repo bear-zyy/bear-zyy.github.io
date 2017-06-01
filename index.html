@@ -24,7 +24,7 @@
 				<a href="/atom.xml" class="header__link">RSS</a>
 			
 		</nav>
-		<h1 class="header__title"><a href="/">张源远的blog</a></h1>
+		<h1 class="header__title"><a href="/bear-zyy/bear-zyy.github.io/tree/master/">张源远的blog</a></h1>
 		<h2 class="header__subtitle"></h2>
 	</header>
 
@@ -42,7 +42,7 @@
 		
 		
 			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/iOS/">iOS</a>
+			  	<a class="article__tag-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a>
 			</span>
 		
 	</div>
@@ -54,7 +54,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(UITableViewCellEditingStyle )tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">return UITableViewCellEditingStyleDelete;//这个是删除</div><div class="line">&#125;</div><div class="line">-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">return YES;</div><div class="line">&#125;</div><div class="line">-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">//在这个方法里面实现删除操作</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2、改变左滑cell删除按钮"><a href="#2、改变左滑cell删除按钮" class="headerlink" title="2、改变左滑cell删除按钮"></a>2、改变左滑cell删除按钮</h3><p>这里就要用到一点黑科技了</p>
 <p>首先来看看左滑后，UI图层</p>
-<p><figure class="figure"><img src="/2017/05/31/自定义左滑cell删除样式/CellDelete.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p><figure class="figure"><img src="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/CellDelete.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
 <p>看到这个图层后，就可以操作了</p>
 <p>UITableViewCellDeleteConfirmationView这个view在代码中是关联不出来的，不像contentview，但是我们可以获取到它。并且改变它。</p>
 <p>在cell中的代码如下，</p>
@@ -80,7 +80,7 @@
 		
 		
 			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			  	<a class="article__tag-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a>
 			</span>
 		
 	</div>
@@ -114,7 +114,7 @@
 		
 		
 			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			  	<a class="article__tag-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a>
 			</span>
 		
 	</div>
@@ -125,18 +125,18 @@
 		<h1 id="在oc代码和swift代码混合使用"><a href="#在oc代码和swift代码混合使用" class="headerlink" title="在oc代码和swift代码混合使用"></a>在oc代码和swift代码混合使用</h1><h3 id="在oc项目中使用swift文件"><a href="#在oc项目中使用swift文件" class="headerlink" title="在oc项目中使用swift文件"></a>在oc项目中使用swift文件</h3><p>1 、创建swift文件</p>
 <p>======</p>
 <p>创建swift文件</p>
-<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift1.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p><figure class="figure"><img src="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/oc-swift1.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
 <p>这个时候会自动弹出时候创建bridgehead.h文件，点击Create就行</p>
-<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift2.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p><figure class="figure"><img src="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/oc-swift2.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
 <p>（注：bridgehead.h也可以自己创建，自己创建后，需要在Bulid Settings -&gt; swift Compiler 中可以设置）</p>
-<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift3.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p><figure class="figure"><img src="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/oc-swift3.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
 <hr>
 <p>2 、 使用swift文件</p>
 <p>======</p>
 <p>用swift怎么写代码就不讲了。。。。 这里默认你swift代码写好了</p>
 <p>创建swift文件时，xcode会产生一个可以叫做中间文件的家伙 “项目名+Swift.h”</p>
 <p>在你需要使用swift代码的类导入”项目名+Swift.h”，就可以使用了</p>
-<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift4.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p><figure class="figure"><img src="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/oc-swift4.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
 <p>总结：</p>
 <p>1、 创建了swift文件后，确保有Birdging header文件。</p>
 <p>注：birdging文件可以在 build setting   中 swift compiler 中，可以替换成自己的</p>
@@ -145,7 +145,7 @@
 <h3 id="在swift项目中使用oc文件"><a href="#在swift项目中使用oc文件" class="headerlink" title="在swift项目中使用oc文件"></a>在swift项目中使用oc文件</h3><p>1、创建oc文件</p>
 <p>===</p>
 <p>如果是第一次在swift项目中创建oc文件，也会创建一个bridging header文件</p>
-<p><figure class="figure"><img src="/2017/02/23/oc和swift语言混合使用/oc-swift2.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p><figure class="figure"><img src="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/oc-swift2.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
 <p>同上，也可以don’t create，自己去创建briding head文件，不细说了。。</p>
 <p>2、使用oc代码</p>
 <p>===</p>
@@ -169,7 +169,7 @@
 		
 		
 			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/iOS/">iOS</a>
+			  	<a class="article__tag-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a>
 			</span>
 		
 	</div>
@@ -217,7 +217,7 @@
 		
 		
 			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			  	<a class="article__tag-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a>
 			</span>
 		
 	</div>

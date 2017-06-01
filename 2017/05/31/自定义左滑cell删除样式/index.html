@@ -24,7 +24,7 @@
 				<a href="/atom.xml" class="header__link">RSS</a>
 			
 		</nav>
-		<h1 class="header__title"><a href="/">张源远的blog</a></h1>
+		<h1 class="header__title"><a href="/bear-zyy/bear-zyy.github.io/tree/master/">张源远的blog</a></h1>
 		<h2 class="header__subtitle"></h2>
 	</header>
 
@@ -38,7 +38,7 @@
 		
 		
 			<span class="article__tags">
-			  	<a class="article__tag-link" href="/tags/iOS/">iOS</a>
+			  	<a class="article__tag-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a>
 			</span>
 		
 	</div>
@@ -50,7 +50,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(UITableViewCellEditingStyle )tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">return UITableViewCellEditingStyleDelete;//这个是删除</div><div class="line">&#125;</div><div class="line">-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">return YES;</div><div class="line">&#125;</div><div class="line">-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">//在这个方法里面实现删除操作</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2、改变左滑cell删除按钮"><a href="#2、改变左滑cell删除按钮" class="headerlink" title="2、改变左滑cell删除按钮"></a>2、改变左滑cell删除按钮</h3><p>这里就要用到一点黑科技了</p>
 <p>首先来看看左滑后，UI图层</p>
-<p><figure class="figure"><img src="/2017/05/31/自定义左滑cell删除样式/CellDelete.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p><figure class="figure"><img src="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/CellDelete.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
 <p>看到这个图层后，就可以操作了</p>
 <p>UITableViewCellDeleteConfirmationView这个view在代码中是关联不出来的，不像contentview，但是我们可以获取到它。并且改变它。</p>
 <p>在cell中的代码如下，</p>
@@ -61,7 +61,7 @@
 	
 
 	
-		<span class="different-posts"><a href="/2017/05/31/自定义左滑cell删除样式/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+		<span class="different-posts"><a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
 
 	
 
