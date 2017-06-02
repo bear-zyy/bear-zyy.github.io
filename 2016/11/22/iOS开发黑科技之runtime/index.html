@@ -1,92 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>iOS开发黑科技之runtime | 张源远的blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS 开发之黑科技—runtimeruntime其实就是oc底层的一套C语音的API 调用方法的本质就是发消息， 1、动态交换两个方法的实现（特别是交换系统自动的方法） 2、动态添加对象的成员变量和成员方法 3、获得某个类的所有成员方法、所有成员变量 注意： 对于一般OC代码的method swizzling, 在load方法中执行即可. 而Swift没有load, 所以要在initialize">
-<meta name="keywords" content="iOS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发黑科技之runtime">
-<meta property="og:url" content="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/index.html">
-<meta property="og:site_name" content="张源远的blog">
-<meta property="og:description" content="iOS 开发之黑科技—runtimeruntime其实就是oc底层的一套C语音的API 调用方法的本质就是发消息， 1、动态交换两个方法的实现（特别是交换系统自动的方法） 2、动态添加对象的成员变量和成员方法 3、获得某个类的所有成员方法、所有成员变量 注意： 对于一般OC代码的method swizzling, 在load方法中执行即可. 而Swift没有load, 所以要在initialize">
-<meta property="og:updated_time" content="2017-05-31T03:27:20.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发黑科技之runtime">
-<meta name="twitter:description" content="iOS 开发之黑科技—runtimeruntime其实就是oc底层的一套C语音的API 调用方法的本质就是发消息， 1、动态交换两个方法的实现（特别是交换系统自动的方法） 2、动态添加对象的成员变量和成员方法 3、获得某个类的所有成员方法、所有成员变量 注意： 对于一般OC代码的method swizzling, 在load方法中执行即可. 而Swift没有load, 所以要在initialize">
-  
-    <link rel="alternate" href="/atom.xml" title="张源远的blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/bear-zyy/bear-zyy.github.io/tree/master/css/style.css">
-  
 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>iOS开发黑科技之runtime | 张源远的blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="张源远的blog" type="application/atom+xml">
+    
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/bear-zyy/bear-zyy.github.io/tree/master/" id="logo">张源远的blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/bear-zyy/bear-zyy.github.io/tree/master/">Home</a>
-        
-          <a class="main-nav-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://github.com/bear-zyy/bear-zyy.github.io/tree/master"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-iOS开发黑科技之runtime" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/" class="article-date">
-  <time datetime="2016-11-22T03:26:32.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      iOS开发黑科技之runtime
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS-开发之黑科技—runtime"><a href="#iOS-开发之黑科技—runtime" class="headerlink" title="iOS 开发之黑科技—runtime"></a>iOS 开发之黑科技—runtime</h1><p>runtime其实就是oc底层的一套C语音的API</p>
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/atom.xml" class="header__link">RSS</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">张源远的blog</a></h1>
+		<h2 class="header__subtitle"></h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>iOS开发黑科技之runtime</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2016-11-22</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/iOS/">iOS</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="iOS-开发之黑科技—runtime"><a href="#iOS-开发之黑科技—runtime" class="headerlink" title="iOS 开发之黑科技—runtime"></a>iOS 开发之黑科技—runtime</h1><p>runtime其实就是oc底层的一套C语音的API</p>
 <p>调用方法的本质就是发消息，</p>
 <p>1、动态交换两个方法的实现（特别是交换系统自动的方法）</p>
 <p>2、动态添加对象的成员变量和成员方法</p>
@@ -108,138 +68,51 @@
 <p>如果不是系统的类，要进行归档解档要遵守协议，和实现协议中的方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)encodeWithCoder:(NSCoder *)aCoder&#123;</div><div class="line">[aCoder encodeObject:self.name forKey:@&quot;name&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(id)initWithCoder:(NSCoder *)aDecoder&#123;</div><div class="line">if (self = [super init]) &#123;</div><div class="line">self.name = [aDecoder decodeObjectForKey:@&quot;name&quot;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/" data-id="cj3e6xt17000025zwsfndbubq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a></li></ul>
+	
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          oc和swift语言混合使用
-        
-      </div>
-    </a>
-  
-  
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/02/ios开发之音频、视频、拍照、视频录制/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">ios开发之音频、视频、拍照、视频录制</div>
-    </a>
-  
-</nav>
+	
+		<span class="different-posts"><a href="/2016/11/22/iOS开发黑科技之runtime/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
 
-  
+	
+
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+	</main>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a></li></ul>
-    </div>
-  </div>
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Hi there, <br />welcome to my Blog glad you found it. Have a look around, will you?</p>
+</div>
 
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/" style="font-size: 10px;">ios</a>
-    </div>
-  </div>
+	    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2016/11/">November 2016</a></li></ul>
-    </div>
-  </div>
+		<div class="footer-credit">
+			<span>© 2017 zyy | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/">自定义左滑cell删除样式</a>
-          </li>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/">权限检测</a>
-          </li>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/03/06/状态栏状态改变/">状态栏状态改变</a>
-          </li>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/">oc和swift语言混合使用</a>
-          </li>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/">iOS开发黑科技之runtime</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 zyy<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/" class="mobile-nav-link">Home</a>
-  
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/bear-zyy/bear-zyy.github.io/tree/master/fancybox/jquery.fancybox.css">
-  <script src="/bear-zyy/bear-zyy.github.io/tree/master/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/bear-zyy/bear-zyy.github.io/tree/master/js/script.js"></script>
-
-  </div>
 </body>
+
 </html>

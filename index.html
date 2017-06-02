@@ -1,89 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>张源远的blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="张源远的blog">
-<meta property="og:url" content="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/index.html">
-<meta property="og:site_name" content="张源远的blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张源远的blog">
-  
-    <link rel="alternate" href="/atom.xml" title="张源远的blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/bear-zyy/bear-zyy.github.io/tree/master/css/style.css">
-  
 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>张源远的blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="张源远的blog" type="application/atom+xml">
+    
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/bear-zyy/bear-zyy.github.io/tree/master/" id="logo">张源远的blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/bear-zyy/bear-zyy.github.io/tree/master/">Home</a>
-        
-          <a class="main-nav-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://github.com/bear-zyy/bear-zyy.github.io/tree/master"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-自定义左滑cell删除样式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/" class="article-date">
-  <time datetime="2017-05-31T01:26:56.000Z" itemprop="datePublished">2017-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/">自定义左滑cell删除样式</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="自定义左滑cell删除样式"><a href="#自定义左滑cell删除样式" class="headerlink" title="自定义左滑cell删除样式"></a>自定义左滑cell删除样式</h1><h3 id="1、首先实现左滑删除功能"><a href="#1、首先实现左滑删除功能" class="headerlink" title="1、首先实现左滑删除功能"></a>1、首先实现左滑删除功能</h3><p>实现tableview的代理事件，不然什么都是免谈</p>
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/atom.xml" class="header__link">RSS</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">张源远的blog</a></h1>
+		<h2 class="header__subtitle"></h2>
+	</header>
+
+	<main>
+		
+
+
+
+	<article>
+	
+		<h1><a href="/2017/05/31/自定义左滑cell删除样式/">自定义左滑cell删除样式</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-05-31</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/iOS/">iOS</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="自定义左滑cell删除样式"><a href="#自定义左滑cell删除样式" class="headerlink" title="自定义左滑cell删除样式"></a>自定义左滑cell删除样式</h1><h3 id="1、首先实现左滑删除功能"><a href="#1、首先实现左滑删除功能" class="headerlink" title="1、首先实现左滑删除功能"></a>1、首先实现左滑删除功能</h3><p>实现tableview的代理事件，不然什么都是免谈</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(UITableViewCellEditingStyle )tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">return UITableViewCellEditingStyleDelete;//这个是删除</div><div class="line">&#125;</div><div class="line">-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">return YES;</div><div class="line">&#125;</div><div class="line">-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line">//在这个方法里面实现删除操作</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2、改变左滑cell删除按钮"><a href="#2、改变左滑cell删除按钮" class="headerlink" title="2、改变左滑cell删除按钮"></a>2、改变左滑cell删除按钮</h3><p>这里就要用到一点黑科技了</p>
 <p>首先来看看左滑后，UI图层</p>
@@ -95,44 +62,33 @@
 <h3 id="3、实现微信那样左滑出现两个按钮"><a href="#3、实现微信那样左滑出现两个按钮" class="headerlink" title="3、实现微信那样左滑出现两个按钮"></a>3、实现微信那样左滑出现两个按钮</h3><p>在控制器中实现这个代理事件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(NSArray&lt;UITableViewRowAction *&gt;*)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath&#123;</div><div class="line"></div><div class="line">UITableViewRowAction *rowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@&quot;删除&quot; handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) &#123;</div><div class="line">//实现点击删除按钮的操作</div><div class="line">&#125;];</div><div class="line">rowAction.backgroundColor = [UIColor redColor];</div><div class="line"></div><div class="line">UITableViewRowAction *rowaction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@&quot;置顶&quot; handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) &#123;</div><div class="line">//实现点击置顶按钮的操作</div><div class="line">&#125;];</div><div class="line">rowaction.backgroundColor = [UIColor grayColor];</div><div class="line">return @[rowAction , rowaction];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/" data-id="cj3e6xt1x000825zwobuj93wo" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a></li></ul>
+	
 
-    </footer>
-  </div>
-  
+	
+
 </article>
 
 
-  
-    <article id="post-权限检测" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/" class="article-date">
-  <time datetime="2017-05-15T03:00:02.000Z" itemprop="datePublished">2017-05-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/">权限检测</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ios开发中检测相机、麦克风、通知权限"><a href="#ios开发中检测相机、麦克风、通知权限" class="headerlink" title="ios开发中检测相机、麦克风、通知权限"></a>ios开发中检测相机、麦克风、通知权限</h1><p>这个是获取到权限后的枚举：</p>
+
+	<article>
+	
+		<h1><a href="/2017/05/15/权限检测/">权限检测</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-05-15</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="ios开发中检测相机、麦克风、通知权限"><a href="#ios开发中检测相机、麦克风、通知权限" class="headerlink" title="ios开发中检测相机、麦克风、通知权限"></a>ios开发中检测相机、麦克风、通知权限</h1><p>这个是获取到权限后的枚举：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">AVAuthorizationStatusNotDetermined = 0,//未询问过用户是否授权</div><div class="line">AVAuthorizationStatusRestricted, //未授权，例如家长控制</div><div class="line">AVAuthorizationStatusDenied, //未授权，用户曾选择过拒绝授权</div><div class="line">AVAuthorizationStatusAuthorized //已经授权</div></pre></td></tr></table></figure>
 <hr>
 <h4 id="相机权限检测"><a href="#相机权限检测" class="headerlink" title="相机权限检测"></a>相机权限检测</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">AVAuthorizationStatus atatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];</div><div class="line">if (atatus == AVAuthorizationStatusDenied || atatus == AVAuthorizationStatusRestricted) &#123;</div><div class="line"></div><div class="line">UIAlertController *alert =[UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@&quot;请在手机的”设置-隐私-相机“中允许访问您的相机。&quot;] message:@&quot;&quot; preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">[alert addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) &#123;</div><div class="line"></div><div class="line">&#125;]];</div><div class="line">[self presentViewController:alert animated:NO completion:nil];</div><div class="line">return NO;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -140,44 +96,33 @@
 <h3 id="通知权限检测"><a href="#通知权限检测" class="headerlink" title="通知权限检测"></a>通知权限检测</h3><p>注本文只提供ios8以后</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">UIUserNotificationSettings * setting = [[UIApplication sharedApplication] currentUserNotificationSettings];</div><div class="line">if (setting.types == UIUserNotificationTypeNone) &#123;//这个是关闭了推送</div><div class="line">UIAlertController *alert =[UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@&quot;您关闭了推送通知&quot;] message:@&quot;&quot; preferredStyle:UIAlertControllerStyleAlert];</div><div class="line">[alert addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) &#123;</div><div class="line">&#125;]];</div><div class="line">[self presentViewController:alert animated:NO completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/" data-id="cj3e6xt1p000425zwrkssgt32" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a></li></ul>
+	
 
-    </footer>
-  </div>
-  
+	
+
 </article>
 
 
-  
-    <article id="post-状态栏状态改变" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/03/06/状态栏状态改变/" class="article-date">
-  <time datetime="2017-03-06T09:00:14.000Z" itemprop="datePublished">2017-03-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bear-zyy/bear-zyy.github.io/tree/master/2017/03/06/状态栏状态改变/">状态栏状态改变</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS-开发之状态栏状态变化"><a href="#iOS-开发之状态栏状态变化" class="headerlink" title="iOS 开发之状态栏状态变化"></a>iOS 开发之状态栏状态变化</h1><h3 id="首先状态栏状态是两个枚举"><a href="#首先状态栏状态是两个枚举" class="headerlink" title="首先状态栏状态是两个枚举"></a>首先状态栏状态是两个枚举</h3><hr>
+
+	<article>
+	
+		<h1><a href="/2017/03/06/状态栏状态改变/">状态栏状态改变</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-03-06</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/iOS/">iOS</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="iOS-开发之状态栏状态变化"><a href="#iOS-开发之状态栏状态变化" class="headerlink" title="iOS 开发之状态栏状态变化"></a>iOS 开发之状态栏状态变化</h1><h3 id="首先状态栏状态是两个枚举"><a href="#首先状态栏状态是两个枚举" class="headerlink" title="首先状态栏状态是两个枚举"></a>首先状态栏状态是两个枚举</h3><hr>
 <p>状态栏的字体为黑色：UIStatusBarStyleDefault<br>状态栏的字体为白色：UIStatusBarStyleLightContent</p>
 <hr>
 <h3 id="改变状态栏状态可以分为两大块："><a href="#改变状态栏状态可以分为两大块：" class="headerlink" title="改变状态栏状态可以分为两大块："></a>改变状态栏状态可以分为两大块：</h3><h5 id="一、在info-plist中，将View-controller-based-status-bar-appearance设为NO"><a href="#一、在info-plist中，将View-controller-based-status-bar-appearance设为NO" class="headerlink" title="一、在info.plist中，将View controller-based status bar appearance设为NO"></a>一、在info.plist中，将View controller-based status bar appearance设为NO</h5><p>状态栏字体的颜色只由下面的属性设定，默认为黑色：</p>
@@ -212,44 +157,33 @@
 <p>方法二：</p>
 <p>自定义一个nav bar的子类，在这个子类中重写preferredStatusBarStyle方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">MyNav* nav = [[MyNav alloc] initWithRootViewController:vc];</div><div class="line"></div><div class="line">self.window.rootViewController = nav;</div><div class="line"></div><div class="line">@implementation MyNav</div><div class="line"></div><div class="line">- (UIStatusBarStyle)preferredStatusBarStyle</div><div class="line"></div><div class="line">&#123;</div><div class="line"></div><div class="line">UIViewController* topVC = self.topViewController;</div><div class="line"></div><div class="line">return [topVC preferredStatusBarStyle];</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2017/03/06/状态栏状态改变/" data-id="cj3e6xt1u000525zw2dooo3yn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a></li></ul>
+	
 
-    </footer>
-  </div>
-  
+	
+
 </article>
 
 
-  
-    <article id="post-oc和swift语言混合使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/" class="article-date">
-  <time datetime="2017-02-23T08:54:52.000Z" itemprop="datePublished">2017-02-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/">oc和swift语言混合使用</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="在oc代码和swift代码混合使用"><a href="#在oc代码和swift代码混合使用" class="headerlink" title="在oc代码和swift代码混合使用"></a>在oc代码和swift代码混合使用</h1><h3 id="在oc项目中使用swift文件"><a href="#在oc项目中使用swift文件" class="headerlink" title="在oc项目中使用swift文件"></a>在oc项目中使用swift文件</h3><p>1 、创建swift文件</p>
+
+	<article>
+	
+		<h1><a href="/2017/02/23/oc和swift语言混合使用/">oc和swift语言混合使用</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-02-23</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="在oc代码和swift代码混合使用"><a href="#在oc代码和swift代码混合使用" class="headerlink" title="在oc代码和swift代码混合使用"></a>在oc代码和swift代码混合使用</h1><h3 id="在oc项目中使用swift文件"><a href="#在oc项目中使用swift文件" class="headerlink" title="在oc项目中使用swift文件"></a>在oc项目中使用swift文件</h3><p>1 、创建swift文件</p>
 <p>======</p>
 <p>创建swift文件</p>
 <p><img src="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/oc-swift1.png" alt="logo"></p>
@@ -278,44 +212,33 @@
 <p>===</p>
 <p>把需要使用的oc类的头文件导入到briding head 文件中，这个时候就可以使用oc类了。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/" data-id="cj3e6xt1l000325zw4dtrbs6d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a></li></ul>
+	
 
-    </footer>
-  </div>
-  
+	
+
 </article>
 
 
-  
-    <article id="post-iOS开发黑科技之runtime" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/" class="article-date">
-  <time datetime="2016-11-22T03:26:32.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/">iOS开发黑科技之runtime</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS-开发之黑科技—runtime"><a href="#iOS-开发之黑科技—runtime" class="headerlink" title="iOS 开发之黑科技—runtime"></a>iOS 开发之黑科技—runtime</h1><p>runtime其实就是oc底层的一套C语音的API</p>
+
+	<article>
+	
+		<h1><a href="/2016/11/22/iOS开发黑科技之runtime/">iOS开发黑科技之runtime</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2016-11-22</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/iOS/">iOS</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="iOS-开发之黑科技—runtime"><a href="#iOS-开发之黑科技—runtime" class="headerlink" title="iOS 开发之黑科技—runtime"></a>iOS 开发之黑科技—runtime</h1><p>runtime其实就是oc底层的一套C语音的API</p>
 <p>调用方法的本质就是发消息，</p>
 <p>1、动态交换两个方法的实现（特别是交换系统自动的方法）</p>
 <p>2、动态添加对象的成员变量和成员方法</p>
@@ -337,44 +260,33 @@
 <p>如果不是系统的类，要进行归档解档要遵守协议，和实现协议中的方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(void)encodeWithCoder:(NSCoder *)aCoder&#123;</div><div class="line">[aCoder encodeObject:self.name forKey:@&quot;name&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(id)initWithCoder:(NSCoder *)aDecoder&#123;</div><div class="line">if (self = [super init]) &#123;</div><div class="line">self.name = [aDecoder decodeObjectForKey:@&quot;name&quot;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/" data-id="cj3e6xt17000025zwsfndbubq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a></li></ul>
+	
 
-    </footer>
-  </div>
-  
+	
+
 </article>
 
 
-  
-    <article id="post-ios开发之音频、视频、拍照、视频录制" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/02/ios开发之音频、视频、拍照、视频录制/" class="article-date">
-  <time datetime="2016-11-02T03:48:07.000Z" itemprop="datePublished">2016-11-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/02/ios开发之音频、视频、拍照、视频录制/">ios开发之音频、视频、拍照、视频录制</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h3><p>首先了解一下音频播放的实现级别：<br>离线播放：这里并不是指应用不联网，而是指播放本地音频文件，包括先下完完成音频文件再进行播放的情况，这种使用AVFoundation里的AVAudioPlayer可以满足<br>在线播放：使用AVFoundation的AVPlayer可以满足<br>在线播放同时存储文件：使用AudioFileStreamer ＋ AudioQueue 可以满足<br>在线播放且带有音效处理：使用<br>这里主要是讲1和2，有兴趣的可以自行去研究3跟4</p>
+
+	<article>
+	
+		<h1><a href="/2016/11/02/ios开发之音频、视频、拍照、视频录制/">ios开发之音频、视频、拍照、视频录制</a></h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2016-11-02</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h3 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h3><p>首先了解一下音频播放的实现级别：<br>离线播放：这里并不是指应用不联网，而是指播放本地音频文件，包括先下完完成音频文件再进行播放的情况，这种使用AVFoundation里的AVAudioPlayer可以满足<br>在线播放：使用AVFoundation的AVPlayer可以满足<br>在线播放同时存储文件：使用AudioFileStreamer ＋ AudioQueue 可以满足<br>在线播放且带有音效处理：使用<br>这里主要是讲1和2，有兴趣的可以自行去研究3跟4</p>
 <hr>
 <p>1、离线播放<br>播放音频通常会选择使用AVFoundation.framework中的AVAudioPlayer。</p>
 <p>AVAudioPlayer可以看成一个播放器，它支持多种音频格式，而且能够进行进度、音量、播放速度等控制。</p>
@@ -391,120 +303,56 @@
 <h3 id="拍照"><a href="#拍照" class="headerlink" title="拍照"></a>拍照</h3><p>等待中。。。。</p>
 <h3 id="视频录制"><a href="#视频录制" class="headerlink" title="视频录制"></a>视频录制</h3><p>等待中。。。。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://github.com/bear-zyy/bear-zyy.github.io/tree/master/2016/11/02/ios开发之音频、视频、拍照、视频录制/" data-id="cj3e6xt1d000125zwkd2a0oju" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a></li></ul>
+	
 
-    </footer>
-  </div>
-  
+	
+
 </article>
 
 
-  
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/">ios</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/bear-zyy/bear-zyy.github.io/tree/master/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/bear-zyy/bear-zyy.github.io/tree/master/tags/ios/" style="font-size: 10px;">ios</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/bear-zyy/bear-zyy.github.io/tree/master/archives/2016/11/">November 2016</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/31/自定义左滑cell删除样式/">自定义左滑cell删除样式</a>
-          </li>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/05/15/权限检测/">权限检测</a>
-          </li>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/03/06/状态栏状态改变/">状态栏状态改变</a>
-          </li>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2017/02/23/oc和swift语言混合使用/">oc和swift语言混合使用</a>
-          </li>
-        
-          <li>
-            <a href="/bear-zyy/bear-zyy.github.io/tree/master/2016/11/22/iOS开发黑科技之runtime/">iOS开发黑科技之runtime</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+	<span class="different-posts">📕 end of posts 📕</span>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 zyy<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Hi there, <br />welcome to my Blog glad you found it. Have a look around, will you?</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 zyy | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/" class="mobile-nav-link">Home</a>
-  
-    <a href="/bear-zyy/bear-zyy.github.io/tree/master/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/bear-zyy/bear-zyy.github.io/tree/master/fancybox/jquery.fancybox.css">
-  <script src="/bear-zyy/bear-zyy.github.io/tree/master/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/bear-zyy/bear-zyy.github.io/tree/master/js/script.js"></script>
-
-  </div>
 </body>
+
 </html>
