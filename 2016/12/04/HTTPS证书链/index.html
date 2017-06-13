@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>HTTPS证书链 | 张源远的blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="张源远的blog" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/atom.xml" class="header__link">RSS</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">张源远的blog</a></h1>
+		<h2 class="header__subtitle"></h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>HTTPS证书链</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2016-12-04</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/HTTPS/">HTTPS</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="HTTPS证书链"><a href="#HTTPS证书链" class="headerlink" title="HTTPS证书链"></a>HTTPS证书链</h1><p>对发送端：HTTPS把应用层的数据放到SSL/TSL层加密后，在下放到TCP/IP层组成IP数据报传输，以此保证数据的安全，对接收端：先把IP数据报在SSL/TSL层解密之后，将数据传给应用层，协议层。</p>
+<p>SSL/TSL包括四次握手，主要交换三个信息：<br>1、数字证书；<br>2、三个随机数；<br>3、加密通讯协议。</p>
+<p><figure class="figure"><img src="/2016/12/04/HTTPS证书链/HTTPS.png" alt="logo"><figcaption class="figure__caption">logo</figcaption></figure></p>
+<p>数字证书</p>
+<p>该证书一般是由服务器发给客户端，接收方通过验证这个证书是不是由信赖的CA签发，或者与本地的证书相对比，来判断证书是否可信；假如需要双向验证，则服务器和客户端都需要发送数字证书给对方验证。<br>数字证书的生成是分层级的，从叶节点证书往根证书层层验证（有效期、签名等等），遇到根证书时，发现作为可信锚点的它存在与可信证书列表中，那么验证就通过。例如在钥匙串中可以看到某券商公司申请的证书没有在系统可信任的证书列表中。</p>
+<p>三个随机数</p>
+<p>这三个随机数构成了后续通信过程中用来对数据进行对称加密解密的“对话密钥”。首先客户端先发第一个随机数n1，然后服务器返回第二个随机数n2（这个过程同时把数字证书发给客户端），这两个随机数都是明文的；而第三个随机数n3，客户端用数字证书的公钥进行非对称加密，发给服务器；而服务器用只有自己知道的私钥来解密，获取第三个随机数。服务端和客户端都有了三个随机数n1+n2+n3后，两端就使用这三个随机数来生成“对话密钥”，在此之后的通信就使用这个“对话密钥”来进行对称加解密。</p>
+<p>加密通信协议</p>
+<p>双方商量具体使用哪一种加密方式，假如两者支持的加密方式不匹配，则无法进行通信。因为这个过程中，服务端的私钥只用来解密第三个随机数，从来没有在网络中传输过，只要私钥没有被泄露，那么数据就是安全的。</p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2016/12/04/HTTPS证书链/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Hi there, <br />welcome to my Blog glad you found it. Have a look around, will you?</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">目录</a></li>
+		
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 zyy | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
