@@ -3,6 +3,7 @@ http://bear-zyy.com/2017/05/15/权限检测/
 http://bear-zyy.com/2017/03/17/ios开发中保存照片和视频到本地相册/
 http://bear-zyy.com/2017/03/06/状态栏状态改变/
 http://bear-zyy.com/2017/02/23/oc和swift语言混合使用/
+http://bear-zyy.com/2017/02/20/RMQClient iOS的集成和使用/
 http://bear-zyy.com/2016/12/04/HTTPS证书链/
 http://bear-zyy.com/2016/11/22/iOS开发黑科技之runtime/
 http://bear-zyy.com/2016/11/04/iOS蓝牙/

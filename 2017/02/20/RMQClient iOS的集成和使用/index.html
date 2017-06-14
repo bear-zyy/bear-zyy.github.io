@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>RMQClient iOS的集成和使用 | 张源远的blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="张源远的blog" type="application/atom+xml">
+    
+</head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/atom.xml" class="header__link">RSS</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">张源远的blog</a></h1>
+		<h2 class="header__subtitle"></h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>RMQClient iOS的集成和使用</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2017-02-20</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-link" href="/tags/ios/">ios</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<h1 id="RMQClient-iOS的集成和使用"><a href="#RMQClient-iOS的集成和使用" class="headerlink" title="RMQClient iOS的集成和使用"></a>RMQClient iOS的集成和使用</h1><h3 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h3><h5 id="QoS-Quality-of-Service-服务质量"><a href="#QoS-Quality-of-Service-服务质量" class="headerlink" title="QoS(Quality of Service,服务质量)"></a>QoS(Quality of Service,服务质量)</h5><p><img src="/2017/02/20/RMQClient iOS的集成和使用/qos.png" alt="logo"></p>
+<h5 id="RETAIN-保持"><a href="#RETAIN-保持" class="headerlink" title="RETAIN(保持)"></a>RETAIN(保持)</h5><p>1：表示发送的消息需要一直持久保存（不受服务器重启影响），不但要发送给当前的订阅者，并且以后新来的订阅了此Topic name的订阅者会马上得到推送。<br>备注：新来乍到的订阅者，只会取出最新的一个RETAIN flag = 1的消息推送。<br>0：仅仅为当前订阅者推送此消息。<br>假如服务器收到一个空消息体(zero-length payload)、RETAIN = 1、已存在Topic name的PUBLISH消息，服务器可以删除掉对应的已被持久化的PUBLISH消息。</p>
+<h5 id="心跳"><a href="#心跳" class="headerlink" title="心跳"></a>心跳</h5><p>1、客户端会在一个心跳周期内发送一条pingreq消息到服务器。</p>
+<p>2、心跳平率在connect可变头部“keep alive timer”中定义时间，单位为秒。</p>
+<p>3、服务器收到pingreq请求后，会立即响应一个两个字节固定格式的pingresp消息。</p>
+<p>4、服务器一般在1.5倍的心跳周期内接收不到客服端发送的pingreq，可考虑关闭客服端的连接描述，但对客服端的订阅不会产生影响。</p>
+<p>5、若客服端发送pingreq之后的一个心跳周期内接收不到pingresp消息，可考虑关闭TCP/IP套接字连接</p>
+<h3 id="二、集成"><a href="#二、集成" class="headerlink" title="二、集成"></a>二、集成</h3><p>1、用cocopods</p>
+<p>pod ‘RMQClient’</p>
+<hr>
+<p>2、用Carthage</p>
+<p>github “rabbitmq/rabbitmq-objc-client” ~&gt; 0.10.0</p>
+<hr>
+<p>3、也可以直接添加RMQClienk框架，这里自己去找框架了</p>
+<hr>
+<p>操作完成后，目录是这个样子的</p>
+<p><img src="/2017/02/20/RMQClient iOS的集成和使用/archive.png" alt="logo"></p>
+<h3 id="三、集成"><a href="#三、集成" class="headerlink" title="三、集成"></a>三、集成</h3><p>1、导入头文件</p>
+<p>import “RMQClient.h”</p>
+<p>注意：如果是用Carthage导入的话，导入头文件</p>
+<p>import &lt; RMQClient/RMQClient.h &gt;</p>
+<p>2、连接RabbitMQ服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">self.connection = [[RMQConnection alloc] initWithUri:self.uri delegate:[RMQConnectionDelegateLogger new]];//初始化一个连接</div><div class="line"></div><div class="line">[self.connection start];</div></pre></td></tr></table></figure>
+<p>3、创建一个通道</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">id&lt;RMQChannel&gt; ch = [self.connection createChannel]; </div><div class="line">self.channel = ch;</div><div class="line">RMQExchange * ex = [[RMQExchange alloc] initWithName:@&quot;amq.topic&quot; type:@&quot;topic&quot; options:RMQExchangeDeclareDurable channel:ch];</div><div class="line">/*</div><div class="line">exchange有四种type，分别是topic  direct ， headers，fanout</div><div class="line">*/</div><div class="line">self.exchange = ex;</div><div class="line">self.queue = [ch queue:@&quot;&quot; options:RMQQueueDeclareDurable];</div><div class="line">[self.queue bind:ex routingKey:@&quot;你的项目topic&quot;];//订阅的主题名字</div></pre></td></tr></table></figure>
+<p>4、接收消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[self.queue subscribe:^(RMQMessage * _Nonnull message) </div><div class="line">NSLog(@&quot;====%@&quot;,message);</div><div class="line">NSString * string = [[NSString alloc] initWithData:message.body encoding:NSUTF8StringEncoding];</div><div class="line">NSData * jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];</div><div class="line"></div><div class="line">NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];</div><div class="line">NSLog(@&quot;%@&quot;,dict);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>5、发送消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[self.exchange publish:[@&quot;hello world&quot; dataUsingEncoding:NSUTF8StringEncoding] routingKey:@&quot;robot.1000896.status@sub&quot;];</div></pre></td></tr></table></figure>
+<p>参考资料：<a href="http://www.rabbitmq.com/tutorials/tutorial-one-objectivec.html" target="_blank" rel="external">http://www.rabbitmq.com/tutorials/tutorial-one-objectivec.html</a></p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2017/02/20/RMQClient iOS的集成和使用/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Hi there, <br />welcome to my Blog glad you found it. Have a look around, will you?</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">目录</a></li>
+		
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    
+		<li class="footer-links__link"><a href="/about">about page</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2017 zyy | Powered by <a href="https://hexo.io/">Hexo</a> | Theme <a href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
